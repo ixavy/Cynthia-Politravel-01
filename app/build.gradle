@@ -33,6 +33,7 @@ android {
     buildFeatures {
         viewBinding true
     }
+    namespace 'com.example.politravel_cynthia_garcia'
 }
 
 dependencies {
@@ -47,4 +48,15 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
+}
+
+
+configurations {
+
+    all {
+
+        exclude group: 'androidx.lifecycle', module: 'lifecycle-viewmodel-ktx'
+
+    }
+
 }

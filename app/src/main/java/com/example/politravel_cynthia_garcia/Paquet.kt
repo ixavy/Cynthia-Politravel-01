@@ -8,5 +8,6 @@ class Paquet (val id: Int,
               val startingPointName: String,
               val endingPointName: String,
               val days: Int,
-              val startingPointCoordinates: Int,
-              val itineraryStopsName: MutableList<String>)
+              val startingPointCoordinates: String,
+              val itineraryStopsName: MutableList<String>
+              )
