@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Politravel_Cynthia_Garcia</string>
+    <string name="app_name">Politravel Cynthia Garcia</string>
     <string name="title_activity_maps">Maps Activity</string>
     <string name="title_activity_paquet_list">Paquet List Activity</string>
     <!-- Strings used for fragments for navigation -->

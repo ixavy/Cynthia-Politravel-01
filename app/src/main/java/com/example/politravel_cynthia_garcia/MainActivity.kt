@@ -2,18 +2,19 @@ package com.example.politravel_cynthia_garcia
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.ListView
+import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // Datos iniciales ---------------------------------------------------
 
-        // Datos iniciales
-
-        val paquets = arrayOf(
+        val paquets: MutableList<Paquet> = mutableListOf(
             Paquet(1,
                 "Paquete 1",
                 23,
@@ -47,18 +48,39 @@ class MainActivity : AppCompatActivity() {
                     "Esplugues",
                     "Badalona"
                 )
+            ),
+            Paquet(3,
+                "Paquete 3",
+                153,
+                131,
+                "Transporte 3",
+                "Punto Salida 3",
+                "Punto Llegada 3",
+                17,
+                "Coordenadas 3",
+                mutableListOf(
+                    "Cadiz",
+                    "Sevilla",
+                    "Cordoba",
+                    "Granada",
+                    "Malaga"
+                )
             )
         )
-
-        val disPaquets = ArrayList<String>()
-        for(paquet: Paquet in paquets) {
-            disPaquets.add(paquet.name)
-        }
+        //--------------------------------------------------------------
 
         val lviewPaquets = findViewById<ListView>(R.id.LstPaquets)
-        val adapterPaquets = ArrayAdapter(this, android.R.layout.simple_list_item_1, disPaquets)
-
+        val adapterPaquets = PaquetsAdapter(this, R.layout.paquets_list, paquets)
         lviewPaquets.adapter = adapterPaquets
+/*
+        lviewPaquets.setOnItemClickListener() {
+            adapterView, view, i, l ->
+
+            val footerPaquets = findViewById(R.id.LblPaquetName) as TextView
+            footerPaquets.text = paquets[i].name
+
+        }
+*/
 
 
 
