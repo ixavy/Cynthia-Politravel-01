@@ -1,6 +1,8 @@
 package com.example.politravel_cynthia_garcia
 
 import android.content.Context
+import android.graphics.drawable.Drawable
+import android.media.Image
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,13 +26,17 @@ class PaquetsAdapter(context: Context, val layout: Int, val paquets: MutableList
     }
 
     fun bindPaquet(view: View, paquet: Paquet) {
- //       val imgPaquet = view.findViewById(R.id.lstPaquetImg) as ImageView
- //       imgPaquet.setImageResource(paquet.imgLow)
 
-          val lblPaquetName = view.findViewById(R.id.lstPaquetName) as TextView
-          lblPaquetName.text = paquet.name
+        val txtFileImg = "a"+paquet.id.toString()+"_llista"
+        val drawImg = context.resources.getIdentifier(txtFileImg,"drawable", context.packageName)
 
-          val lblPaquetTransport = view.findViewById(R.id.lstPaquetTransport) as TextView
-          lblPaquetTransport.text = "Transporte: " + paquet.transport
+        val imgPaquet = view.findViewById(R.id.lstPaquetImg) as ImageView
+        imgPaquet.setImageResource(drawImg)
+
+        val lblPaquetName = view.findViewById(R.id.lstPaquetName) as TextView
+        lblPaquetName.text = paquet.name
+
+        val lblPaquetTransport = view.findViewById(R.id.lstPaquetTransport) as TextView
+        lblPaquetTransport.text = "Transporte: " + paquet.transport
     }
 }
