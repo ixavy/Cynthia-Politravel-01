@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
             Paquet(1,
                 "Paquete 1",
                 23,
-                21,
+                2131165219,
                 "Transporte 1",
                 "Punto Salida 1",
                 "Punto Llegada 1",
@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
             Paquet(2,
                 "Paquete 2",
                 53,
-                31,
+                2131165220,
                 "Transporte 2",
                 "Punto Salida 2",
                 "Punto Llegada 2",
@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
             Paquet(3,
                 "Paquete 3",
                 153,
-                131,
+                2131165221,
                 "Transporte 3",
                 "Punto Salida 3",
                 "Punto Llegada 3",
@@ -72,17 +72,12 @@ class MainActivity : AppCompatActivity() {
         val lviewPaquets = findViewById<ListView>(R.id.LstPaquets)
         val adapterPaquets = PaquetsAdapter(this, R.layout.paquets_list, paquets)
         lviewPaquets.adapter = adapterPaquets
-/*
+
         lviewPaquets.setOnItemClickListener() {
             adapterView, view, i, l ->
 
             val footerPaquets = findViewById(R.id.LblPaquetName) as TextView
             footerPaquets.text = paquets[i].name
-
         }
-*/
-
-
-
    }
 }

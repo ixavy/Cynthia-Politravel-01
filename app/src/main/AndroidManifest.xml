@@ -13,11 +13,6 @@
         android:theme="@style/Theme.Politravel_Cynthia_Garcia"
         tools:targetApi="31" >
 
-        <activity android:name=".PaquetListActivity"></activity>
-        <activity android:name=".PaquetDetailActivity"></activity>
-        <activity android:name=".PaquetEditActivity"></activity>
-        <activity android:name=".PaquetAddActivity"></activity>
-
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 
@@ -42,6 +37,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".PaquetListActivity"></activity>
+        <activity android:name=".PaquetDetailActivity"></activity>
+        <activity android:name=".PaquetEditActivity"></activity>
+        <activity android:name=".PaquetAddActivity"></activity>
     </application>
 
 </manifest>
