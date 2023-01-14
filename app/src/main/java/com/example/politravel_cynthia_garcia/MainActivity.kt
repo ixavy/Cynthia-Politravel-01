@@ -13,12 +13,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         // Datos iniciales ---------------------------------------------------
-
         val paquets: MutableList<Paquet> = mutableListOf(
             Paquet(1,
                 "Paquete 1",
-                23,
-                2131165219,
+                this.getImgIdFromImgName("a1_principal"),
+                this.getImgIdFromImgName("a1_llista"),
                 "Transporte 1",
                 "Punto Salida 1",
                 "Punto Llegada 1",
@@ -34,8 +33,8 @@ class MainActivity : AppCompatActivity() {
             ),
             Paquet(2,
                 "Paquete 2",
-                53,
-                2131165220,
+                this.getImgIdFromImgName("a2_principal"),
+                this.getImgIdFromImgName("a2_llista"),
                 "Transporte 2",
                 "Punto Salida 2",
                 "Punto Llegada 2",
@@ -51,8 +50,8 @@ class MainActivity : AppCompatActivity() {
             ),
             Paquet(3,
                 "Paquete 3",
-                153,
-                2131165221,
+                this.getImgIdFromImgName("a3_principal"),
+                this.getImgIdFromImgName("a3_llista"),
                 "Transporte 3",
                 "Punto Salida 3",
                 "Punto Llegada 3",
@@ -79,5 +78,9 @@ class MainActivity : AppCompatActivity() {
             val footerPaquets = findViewById(R.id.LblPaquetName) as TextView
             footerPaquets.text = paquets[i].name
         }
-   }
+    }
+    // Extraer identificador de la imagen en drawable desde el nombre de imagen
+    fun getImgIdFromImgName(imgName: String): Int {
+        return this.resources.getIdentifier(imgName, "drawable", this.packageName)
+    }
 }

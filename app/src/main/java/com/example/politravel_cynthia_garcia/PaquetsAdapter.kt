@@ -27,24 +27,13 @@ class PaquetsAdapter(context: Context, val layout: Int, val paquets: MutableList
 
     fun bindPaquet(view: View, paquet: Paquet) {
 
-        // Nombre del recurso de la imagen en drawable -> idPaquete+"_llista", según reto
-        val txtFileImg = "a"+paquet.id.toString()+"_llista"
-
-        val imgLow = getImgIdFromImgName(txtFileImg)
-
         val imgPaquet = view.findViewById(R.id.lstPaquetImg) as ImageView
-// TODO: Sustituir imgLow por paquet.imgLow (cuando sepamos como informar paquet.imgLow con el Int de la imagen)
-        imgPaquet.setImageResource(imgLow)
+        imgPaquet.setImageResource(paquet.imgLow)
 
         val lblPaquetName = view.findViewById(R.id.lstPaquetName) as TextView
         lblPaquetName.text = paquet.name
 
         val lblPaquetTransport = view.findViewById(R.id.lstPaquetTransport) as TextView
         lblPaquetTransport.text = "Transporte: " + paquet.transport
-    }
-
-    // Extraer identificador de la imagen en drawable desde el nombre de imagen
-    fun getImgIdFromImgName(imgName: String): Int {
-        return context.resources.getIdentifier(imgName,"drawable", context.packageName)
     }
 }
