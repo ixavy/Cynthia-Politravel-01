@@ -10,28 +10,4 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-
-    // Main Activity
-    <string name="main_activity_title_layout_width">match_parent</string>
-    <string name="main_activity_title_layout_height">0dp</string>
-    <string name="main_activity_title_layout_weight">1</string>
-    <string name="main_activity_title_gravity">center_horizontal</string>
-    <string name="main_activity_title_padding">10dp</string>
-    <string name="main_activity_title_textsize">20sp</string>
-    <string name="main_activity_title_textstyle">bold</string>
-
-    <string name="main_activity_footer_id">"@+id/LblPaquetName"</string>
-    <string name="main_activity_footer_layout_width">match_parent</string>
-    <string name="main_activity_footer_layout_height">0dp</string>
-    <string name="main_activity_footer_layout_weight">1</string>
-    <string name="main_activity_footer_gravity">center_horizontal</string>
-    <string name="main_activity_footer_padding">10dp</string>
-    <string name="main_activity_footer_textsize">20sp</string>
-    <string name="main_activity_footer_textstyle">italic</string>
-
-    <string name="LstPaquets">"@+id/LstPaquets"</string>
-    <string name="main_activity_list_layout_width">match_parent</string>
-    <string name="main_activity_list_layout_height">0dp</string>
-    <string name="main_activity_list_layout_weight">5</string>
-
 </resources>

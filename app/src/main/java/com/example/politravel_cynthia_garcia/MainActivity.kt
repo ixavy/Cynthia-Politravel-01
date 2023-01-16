@@ -2,8 +2,10 @@ package com.example.politravel_cynthia_garcia
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.LinearLayout
 import android.widget.ListView
 import android.widget.TextView
 
@@ -68,14 +70,19 @@ class MainActivity : AppCompatActivity() {
         )
         //--------------------------------------------------------------
 
+        val llayout = findViewById<LinearLayout>(R.id.Llayout)
         val lviewPaquets = findViewById<ListView>(R.id.LstPaquets)
+        val footerPaquets = findViewById(R.id.LblPaquetName) as TextView
+
         val adapterPaquets = PaquetsAdapter(this, R.layout.paquets_list, paquets)
         lviewPaquets.adapter = adapterPaquets
 
+        llayout.setOnClickListener {
+            Log.d("Click", "Click en Layout")
+        }
+
         lviewPaquets.setOnItemClickListener() {
             adapterView, view, i, l ->
-
-            val footerPaquets = findViewById(R.id.LblPaquetName) as TextView
             footerPaquets.text = paquets[i].name
         }
     }

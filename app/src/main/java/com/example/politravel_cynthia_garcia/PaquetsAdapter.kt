@@ -18,7 +18,7 @@ class PaquetsAdapter(context: Context, val layout: Int, val paquets: MutableList
         if(convertView != null){
             view = convertView
         }else{
-            view = LayoutInflater.from(getContext()).inflate(layout, parent, false)
+            view = LayoutInflater.from(context).inflate(layout, parent, false)
         }
         bindPaquet(view, paquets[position])
 
