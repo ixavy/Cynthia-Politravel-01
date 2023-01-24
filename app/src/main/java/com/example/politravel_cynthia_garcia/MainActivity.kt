@@ -3,11 +3,7 @@ package com.example.politravel_cynthia_garcia
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.LinearLayout
-import android.widget.ListView
-import android.widget.TextView
+import android.widget.*
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -78,12 +74,12 @@ class MainActivity : AppCompatActivity() {
         lviewPaquets.adapter = adapterPaquets
 
         llayout.setOnClickListener {
-            Log.d("Click", "Click en Layout")
+            Toast.makeText(this, "Click", Toast.LENGTH_LONG).show()
         }
 
         lviewPaquets.setOnItemClickListener() {
             adapterView, view, i, l ->
-            footerPaquets.text = paquets[i].name
+            Toast.makeText(this, paquets[i].name, Toast.LENGTH_LONG).show()
         }
     }
     // Extraer identificador de la imagen en drawable desde el nombre de imagen
