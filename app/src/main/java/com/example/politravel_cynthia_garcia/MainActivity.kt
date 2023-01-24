@@ -4,18 +4,24 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.*
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+import java.io.FileReader
+import java.io.FileWriter
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Datos iniciales ---------------------------------------------------
+/*
+        // Datos iniciales -------------------------------------------------
+
         val paquets: MutableList<Paquet> = mutableListOf(
             Paquet(1,
                 "Paquete 1",
-                this.getImgIdFromImgName("a1_principal"),
-                this.getImgIdFromImgName("a1_llista"),
+                this.getImgIdFromImgName("id_1_principal"),
+                this.getImgIdFromImgName("id_1_llista"),
                 "Transporte 1",
                 "Punto Salida 1",
                 "Punto Llegada 1",
@@ -31,8 +37,8 @@ class MainActivity : AppCompatActivity() {
             ),
             Paquet(2,
                 "Paquete 2",
-                this.getImgIdFromImgName("a2_principal"),
-                this.getImgIdFromImgName("a2_llista"),
+                this.getImgIdFromImgName("id_2_principal"),
+                this.getImgIdFromImgName("id_2_llista"),
                 "Transporte 2",
                 "Punto Salida 2",
                 "Punto Llegada 2",
@@ -48,8 +54,8 @@ class MainActivity : AppCompatActivity() {
             ),
             Paquet(3,
                 "Paquete 3",
-                this.getImgIdFromImgName("a3_principal"),
-                this.getImgIdFromImgName("a3_llista"),
+                this.getImgIdFromImgName("id_3_principal"),
+                this.getImgIdFromImgName("id_3_llista"),
                 "Transporte 3",
                 "Punto Salida 3",
                 "Punto Llegada 3",
@@ -64,6 +70,11 @@ class MainActivity : AppCompatActivity() {
                 )
             )
         )
+
+        this.writeJson(paquets)
+*/
+        val paquets: MutableList<Paquet> = this.readJson()
+
         //--------------------------------------------------------------
 
         val llayout = findViewById<LinearLayout>(R.id.Llayout)
@@ -85,5 +96,24 @@ class MainActivity : AppCompatActivity() {
     // Extraer identificador de la imagen en drawable desde el nombre de imagen
     fun getImgIdFromImgName(imgName: String): Int {
         return this.resources.getIdentifier(imgName, "drawable", this.packageName)
+    }
+
+    fun writeJson(datos: MutableList<Paquet>) {
+        val jsonFilePath = this.filesDir.toString() + "/json/paquets.json"
+        val jsonFile = FileWriter(jsonFilePath)
+
+        val gson = Gson()
+        val json: String = gson.toJson(datos)
+
+        jsonFile.write(json)
+        jsonFile.close()
+    }
+
+    fun readJson(): MutableList<Paquet> {
+        val jsonFilePath = this.filesDir.toString() + "/json/paquets.json"
+        val jsonFile = FileReader(jsonFilePath)
+
+        val listPlayerType = object : TypeToken<MutableList<Paquet>>() {}.type
+        return Gson().fromJson(jsonFile, listPlayerType)
     }
 }
